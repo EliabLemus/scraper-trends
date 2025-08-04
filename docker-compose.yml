@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  scraper:
+    image: docker.io/elemusbarrios/x-trends:latest
+    container_name: x-trends-scraper
+    environment:
+      # cambia si tu instancia Nitter corre en otra IP/puerto
+      - NITTER_LOCAL=http://192.168.2.23:9090
+    ports:
+      - "9090:8080"     # host:container
+    restart: unless-stopped
